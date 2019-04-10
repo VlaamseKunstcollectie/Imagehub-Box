@@ -71,3 +71,5 @@
     - { role: undergreen.mongo,                      tags: [ "mongo" ] }
     - { role: geerlingguy.java,                      tags: [ "java" ] }
     - { role: rvm.ruby,                              tags: [ "ruby" ] }
+    - { role: islandora.tomcat,                      tags: [ "tomcat" ] }
+    - { role: islandora.cantaloupe,                  tags: [ "cantaloupe" ] }

@@ -27,3 +27,11 @@
 - src: git+https://github.com/rvm/rvm1-ansible
   version: "v2.1.2"
   name: rvm.ruby
+
+- src: git+https://github.com/Islandora-Devops/ansible-role-cantaloupe
+  version: "0.0.1"
+  name: islandora.cantaloupe
+
+- src: https://github.com/Islandora-DevOps/ansible-role-tomcat8
+  version: "0.0.2"
+  name: islandora.tomcat
