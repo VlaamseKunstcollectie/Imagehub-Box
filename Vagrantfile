@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-require_relative 'lib/datahubbox/vagrant'
+require_relative 'lib/imagehubbox/vagrant'
 
 # Absolute paths on the host machine.
 host_datahubbox_dir = File.dirname(File.expand_path(__FILE__))

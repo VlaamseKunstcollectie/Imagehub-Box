@@ -1,20 +1,21 @@
 ---
 
-vagrant_box: datahub-bionic64
-vagrant_box_url: file://packer/build/datahub-bionic64.box
+vagrant_box: imagehub-bionic64
+vagrant_box_url: file://packer/build/imagehub-bionic64.box
 
 vagrant_user: vagrant
 vagrant_synced_folder_default_type: nfs
 vagrant_gui: false
 
-# If you need to run multiple instances of Datahub Box VM, 
+# If you need to run multiple instances of Imagehub Box VM,
 # set a unique hostname, machine name, and IP address for 
 # each instance.
-vagrant_hostname: datahub.box
-vagrant_machine_name: datahubbox
+vagrant_hostname: imagehub.box
+vagrant_machine_name: imagehubbox
 vagrant_ip: 192.168.2.152
 
-# Allow Datahub Box VM to be accessed via a public network 
+# Allow Imagehub Box VM to be accessed via a public network
+# Allow Imagehub Box VM to be accessed via a public network
 # interface on your host. Vagrant boxes are insecure by default, 
 # so be careful. You've been warned!
 # See: https://docs.vagrantup.com/v2/networking/public_network.html
@@ -24,9 +25,9 @@ vagrant_public_ip: ""
 # A list of synced folders, with the keys 'local_path', 'destination', and
 # a 'type' of [nfs|rsync|smb] (leave empty for slow native shares).
 vagrant_synced_folders:
-  # The first synced folder will be used for the default Datahub installation, if
+  # The first synced folder will be used for the default Imagehub installation, if
   # any of the build_* settings are 'true'. By default the folder is set to
-  # the datahub folder.
+  # the imagehub folder.
   - local_path: .
     destination: /vagrant
     type: nfs
@@ -42,7 +43,7 @@ vagrant_plugins:
   - name: vagrant-hostsupdater
 
 # Minimum required versions.
-datahubbox_vagrant_version_min: '1.8.6'
+imagehubbox_vagrant_version_min: '1.8.6'
 
 # Domain names
 datahub_domain: datahub.box
