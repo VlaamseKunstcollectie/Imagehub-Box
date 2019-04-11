@@ -129,7 +129,6 @@ nginx_vhosts:
         return 404;
       }
 
-nginx_vhosts:
   - listen: "80"
     server_name: "imagehub.box"
     root: "/vagrant/imagehub/web"
