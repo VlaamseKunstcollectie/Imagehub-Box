@@ -1,4 +1,4 @@
-# Datahub Box (Vagrant, Packer and Ansible)
+# Imagehub Box (Vagrant, Packer and Ansible)
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
@@ -30,18 +30,18 @@ you can use Packer to build the Vagrant box file:
 
 ## How to use
 
-Then copy or rename the `datahub.default` file which contains the Ansible 
+Then copy or rename the `imagehub.default` file which contains the Ansible 
 configuration file:
 
 ```bash
-$ cp ./ansible/datahub.default ./ansible/datahub
+$ cp ./ansible/imagehub.default ./ansible/imagehub
 ```
 
 Change the `path-to-machine` string in the inventory configuration and let it
-point to the directory that contains the Datahub-Box installation i.e:
+point to the directory that contains the Imagehub-Box installation i.e:
 
 ```
-ansible_ssh_private_key_file='/Users/John/Machines/My-Box/.vagrant/machines/datahub.box/virtualbox/private_key'
+ansible_ssh_private_key_file='/Users/John/Machines/My-Box/.vagrant/machines/imagehub.box/virtualbox/private_key'
 ```
 
 Next, make sure you have all the required software (listed above) before is installed,
@@ -56,7 +56,7 @@ maintained by other authors. These are installed in the `ansible/roles/external`
 directory. Then cd into the `packer` directory and run:
 
 ```bash
-$ packer build datahub.json
+$ packer build imagehub.json
 ```
 
 After a few minutes, Packer should tell you the box was generated succesfully.
@@ -67,7 +67,7 @@ platforms (e.g. only build the Virtualbox box), add --only=virtualbox-iso to
 the packer build command:
 
 ```bash
-$ packer build --only=virtualbox-iso datahub.json
+$ packer build --only=virtualbox-iso imagehub.json
 ```
 
 ## Using built boxes
@@ -83,7 +83,7 @@ $ cp default.config.yml config.yml
 Change the variables in the configuration file for your particular setup. 
 Make sure you point the `vagrant_synced_folders` to the directory on the host 
 machine where you installed both an instance of the datahub and Project 
-Blacklight. If you're setup looks like this:
+Blacklight. If your setup looks like this:
 
 ```bash
 $ cd ~/Projects

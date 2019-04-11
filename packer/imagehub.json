@@ -12,9 +12,9 @@
     },
     {
       "type": "ansible-local",
-      "playbook_file": "../ansible/plays/datahub.yml",
+      "playbook_file": "../ansible/plays/imagehub.yml",
       "group_vars": "../ansible/group_vars",
-      "inventory_file": "../ansible/datahub",
+      "inventory_file": "../ansible/imagehub",
       "role_paths": [
         "../ansible/roles/external/geerlingguy.git",
         "../ansible/roles/external/geerlingguy.nginx",
@@ -25,7 +25,7 @@
         "../ansible/roles/internal/geerlingguy.java",
         "../ansible/roles/external/rvm.ruby",
         "../ansible/roles/external/islandora.tomcat",
-        "../ansible/roles/external/islandora.cantaloupe",
+        "../ansible/roles/external/islandora.cantaloupe"
       ]
     },
     {
@@ -36,7 +36,7 @@
 	],
 	"post-processors": [
 		{
-			"output": "build/datahub-bionic64.box",
+			"output": "build/imagehub-bionic64.box",
 			"type": "vagrant"
 		}
 	],
@@ -87,7 +87,7 @@
       "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
       "guest_additions_path": "VBoxGuestAdditions.iso",
       "virtualbox_version_file": "",
-      "vm_name": "packer-datahub-ubuntu-16.04-amd64",
+      "vm_name": "packer-imagehub-ubuntu-16.04-amd64",
       "vboxmanage": [
         [
           "modifyvm",
@@ -149,7 +149,7 @@
       "ssh_username": "vagrant",
       "ssh_wait_timeout": "10000s",
       "tools_upload_flavor": "linux",
-      "vm_name": "packer-datahub-ubuntu-16.04-amd64",
+      "vm_name": "packer-imagehub-ubuntu-16.04-amd64",
       "vmx_data": {
         "cpuid.coresPerSocket": "1",
         "memsize": "512",

@@ -4,17 +4,17 @@
 require_relative 'lib/imagehubbox/vagrant'
 
 # Absolute paths on the host machine.
-host_datahubbox_dir = File.dirname(File.expand_path(__FILE__))
-host_project_dir = host_datahubbox_dir
-host_config_dir = ENV['DATAHUBBOX_CONFIG_DIR'] ? "#{host_project_dir}/#{ENV['DATAHUBBOX_CONFIG_DIR']}" : host_project_dir
+host_imagehubbox_dir = File.dirname(File.expand_path(__FILE__))
+host_project_dir = host_imagehubbox_dir
+host_config_dir = ENV['IMGAEHUBBOX_CONFIG_DIR'] ? "#{host_project_dir}/#{ENV['IMAGEHUBBOX_CONFIG_DIR']}" : host_project_dir
 
 # Absolute paths on the guest machine.
 
 # @todo
 
-datahubbox_env = ENV['DATAHUBBOX_ENV'] || 'vagrant'
+imagehubbox_env = ENV['IMAGEHUBBOX_ENV'] || 'vagrant'
 
-default_config_file = "#{host_datahubbox_dir}/default.config.yml"
+default_config_file = "#{host_imagehubbox_dir}/default.config.yml"
 unless File.exist?(default_config_file)
   raise_message "Configuration file not found! Expected in #{default_config_file}"
 end
@@ -22,12 +22,12 @@ end
 vconfig = load_config([
   default_config_file,
   "#{host_config_dir}/config.yml",
-  "#{host_config_dir}/#{datahubbox_env}.config.yml",
+  "#{host_config_dir}/#{imagehubbox_env}.config.yml",
   "#{host_config_dir}/local.config.yml"
 ])
 
 # Verify version requirements.
-Vagrant.require_version ">= #{vconfig['datahubbox_vagrant_version_min']}"
+Vagrant.require_version ">= #{vconfig['imagehubbox_vagrant_version_min']}"
 
 ensure_plugins(vconfig['vagrant_plugins'])
 

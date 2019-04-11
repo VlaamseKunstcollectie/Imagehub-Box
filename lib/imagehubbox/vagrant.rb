@@ -60,7 +60,7 @@ def require_ansible_version(requirement)
   return unless ansible_bin
   req = Gem::Requirement.new(requirement)
   return if req.satisfied_by?(Gem::Version.new(ansible_version))
-  raise_message "You must install an Ansible version #{requirement} to use this version of Datahub Box."
+  raise_message "You must install an Ansible version #{requirement} to use this version of Imagehub Box."
 end
 
 def raise_message(msg)
@@ -118,7 +118,7 @@ end
 
 # Return a default post_up_message.
 def get_default_post_up_message(vconfig)
-  'Your Datahub VM Vagrant box is ready to use!'\
+  'Your Imagehub VM Vagrant box is ready to use!'\
    "\n Visit https://github.com/thedatahub/datahub for instructions on how to"\
    "\n install a new instance of the Datahub."
 end
