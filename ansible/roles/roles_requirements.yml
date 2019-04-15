@@ -28,6 +28,14 @@
   version: "v2.1.2"
   name: rvm.ruby
 
+- src: git+https://github.com/geerlingguy/ansible-role-mysql
+  version: "master"
+  name: geerlingguy.mysql
+
+- src: git+https://github.com/geerlingguy/ansible-role-php-mysql
+  version: "master"
+  name: geerlingguy.php-mysql
+
 - src: git+https://github.com/Islandora-Devops/ansible-role-cantaloupe
   version: "0.0.1"
   name: islandora.cantaloupe

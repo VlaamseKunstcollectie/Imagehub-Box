@@ -128,6 +128,21 @@ nginx_vhosts:
       location ~ \.php$ {
         return 404;
       }
+      
+  - listen: "80"
+    server_name: "resourcespace.box"
+    root: "/vagrant/resourcespace"
+    index: "index.php index.html index.htm"
+    access_log: "/var/log/nginx/project_access.log"
+    error_log: "/var/log/nginx/project_error.log"
+    extra_parameters: |
+      location ~* \.php$ {
+        fastcgi_pass 127.0.0.1:9000;
+        fastcgi_split_path_info ^(.+\.php)(/.*)$;
+        include         fastcgi_params;
+        fastcgi_param   SCRIPT_FILENAME    $document_root$fastcgi_script_name;
+        fastcgi_param   SCRIPT_NAME        $fastcgi_script_name;
+      }
 
   - listen: "80"
     server_name: "imagehub.box"
