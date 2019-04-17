@@ -5,7 +5,20 @@
 This project builds and configures a virtual image containing the necessary
 dependencies for developing, deploying and managing [thedatahub/datahub](github.com/thedatahub/datahub)
 and [projectblacklight/blacklight](https://github.com/projectblacklight/blacklight)
-on a local or remote hosts.
+on a local or remote hosts. It also includes an installation of [ResourceSpace](https://www.resourcespace.com/), a Digital Asset Manager (DAM) that allows you to upload, manage, and expose digital image files.
+
+This is currently a development repository geared towards developing an imagehub, with the following goals:
+
+1. getting images from a file system imported into resourcespace automatically, with correct extraction of embedded metadata
+2. setting up a IIIF image API using a Cantaloupe IIIF image server that extracts images from the Resourcespace API.
+3. the creation of an [Imagehub](https://github.com/VlaamseKunstcollectie/Imagehub), a platform similar to Datahub that extracts and combines metadata from:
+  - the ResourceSpace API
+  - The Cantaloupe IIIF image server info.json files
+  - the Datahub<br/>converting that metadata into IIIF manifest.json files, presenting those using a IIIF Presentation API.
+4. further developing the [Arthub](https://github.com/VlaamseKunstcollectie/Arthub-Imagehub) to show image files associated with cultural heritage records using the [Universal Viewer](http://universalviewer.io).   
+
+Development of the Imagehub should happen in the [Imagehub](https://github.com/VlaamseKunstcollectie/Imagehub) repo, development of the Arthub should happen in the [Imagehub-Arthub repo](https://github.com/VlaamseKunstcollectie/Arthub-Imagehub). 
+
 
 You'll get an [Ubuntu 16.04.5 Server (AMD 64)](old-releases.ubuntu.com/releases/trusty/)
 box ready for use with [Vagrant](https://www.vagrantup.com/). This box is
@@ -80,7 +93,7 @@ Copy the `default.config.yml` file to `config.yml`.
 $ cp default.config.yml config.yml
 ```
 
-Change the variables in the configuration file for your particular setup. 
+Change the variables in the configuration file for your particular setup. You should download a copy of the [datahub](https://github.com/thedatahub/datahub), the [arthub](https://github.com/VlaamseKunstcollectie/Arthub-Imagehub), project blacklight, and [resourcespace](https://www.resourcespace.com/get) into the folder you wish to make your shared folder with vagrant. 
 Make sure you point the `vagrant_synced_folders` to the directory on the host 
 machine where you installed both an instance of the datahub and Project 
 Blacklight. If your setup looks like this:
@@ -92,6 +105,7 @@ drwxr-xr-x  12 user  staff   408B Oct 24 11:09 .
 drwxr-xr-x  58 user  staff   1.9K Dec  2 16:50 ..
 drwxr-xr-x  20 user  staff   680B Dec  6 14:05 datahub
 drwxr-xr-x  27 user  staff   918B Oct 24 15:59 project-blacklight
+drwxr-xr-x 22  user  staff   704B Apr 12 15:39 resourcespace
 ```
 
 the YAML configuration should look like this:
@@ -107,7 +121,7 @@ vagrant_synced_folders:
 create: true
 ```
 
-Note: if you change the name of the `datahub` and `project-blacklight` folders, 
+Note: if you change the name of the `datahub`, `project-blacklight`, and `resourcespace` folders, 
 you will have to update the variables in `ansible/group_vars/all/nginx.yml` as 
 well and run the `ansible-playbook` command to update the box with the new 
 settings.
