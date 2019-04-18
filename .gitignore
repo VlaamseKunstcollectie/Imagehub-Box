@@ -6,3 +6,5 @@ packer/build/*.box
 output-virtualbox-iso
 output-vmware-iso
 ansible/roles/external/*
+ansible/imagehub
+.DS_Store
