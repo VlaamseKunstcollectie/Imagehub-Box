@@ -1,7 +1,7 @@
 ---
 
-mongodb_package: mongodb-org
-mongodb_version: "3.2"
+mongodb_package: mongodb
+mongodb_version: "3.6"
 
 mongodb_security_authorization: "enabled"
 

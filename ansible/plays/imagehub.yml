@@ -7,10 +7,6 @@
 
   pre_tasks:
 
-    - name: Installing repo for Java 8 in Ubuntu
-      become: true
-      apt_repository: repo='ppa:webupd8team/java'
-
     - name: Add ppa Repository
       become: true
       apt_repository: repo=ppa:ondrej/php
@@ -20,19 +16,9 @@
       apt: update_cache=yes
 
     - name: Install System Packages
-      apt: pkg={{ item }} state=latest
-      with_items:
-        - zip
-        - unzip
-        - libcurl4-openssl-dev
-        - pkg-config
-        - libssl-dev
-        - libsslcommon2-dev
-        - libsqlite3-dev
-        - imagemagick
-        - gpgv2
-        - libxml2-dev
-        - libxslt1-dev
+      apt:
+        pkg:  ['zip', 'unzip', 'libcurl4-openssl-dev', 'pkg-config', 'libssl-dev', 'libsqlite3-dev', 'imagemagick','gpgv2', 'libxml2-dev', 'libxslt1-dev']
+        state: latest
 
     - name: Remove system Ruby
       apt:
@@ -74,4 +60,5 @@
     - { role: geerlingguy.java,                      tags: [ "java" ] }
     - { role: rvm.ruby,                              tags: [ "ruby" ] }
     - { role: islandora.tomcat,                      tags: [ "tomcat" ] }
-   # - { role: islandora.cantaloupe,                  tags: [ "cantaloupe" ] }
+ #   - { role: islandora.cantaloupe,                  tags: [ "cantaloupe" ] }
+    

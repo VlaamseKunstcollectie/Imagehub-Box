@@ -24,7 +24,7 @@
         "../ansible/roles/external/geerlingguy.php-mysql",
         "../ansible/roles/external/geerlingguy.composer",
         "../ansible/roles/external/undergreen.mongo",
-        "../ansible/roles/internal/geerlingguy.java",
+        "../ansible/roles/external/geerlingguy.java",
         "../ansible/roles/external/rvm.ruby",
         "../ansible/roles/external/islandora.tomcat",
         "../ansible/roles/external/islandora.cantaloupe"
@@ -77,11 +77,11 @@
       "headless": true,
       "http_directory": "http",
       "iso_urls": [
-        "iso/ubuntu-16.04.6-server-amd64.iso",
-        "http://releases.ubuntu.com/16.04.6/ubuntu-16.04.6-server-amd64.iso"
+        "iso/ubuntu-18.04.2-server-amd64.iso",
+        "http://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04.2-server-amd64.iso"
       ],
       "iso_checksum_type": "sha256",
-      "iso_checksum": "16afb1375372c57471ea5e29803a89a5a6bd1f6aabea2e5e34ac1ab7eb9786ac",
+      "iso_checksum": "a2cb36dc010d98ad9253ea5ad5a07fd6b409e3412c48f1860536970b073c98f5",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
       "ssh_port": 22,
@@ -89,7 +89,7 @@
       "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
       "guest_additions_path": "VBoxGuestAdditions.iso",
       "virtualbox_version_file": "",
-      "vm_name": "packer-imagehub-ubuntu-16.04-amd64",
+      "vm_name": "packer-imagehub-ubuntu-18.04.2-server-amd64",
       "vboxmanage": [
         [
           "modifyvm",
@@ -139,19 +139,19 @@
       "headless": true,
       "http_directory": "http",
       "iso_urls": [
-        "iso/ubuntu-16.04.6-server-amd64.iso",
-        "http://releases.ubuntu.com/16.04.6/ubuntu-16.04.6-server-amd64.iso"
+        "iso/ubuntu-18.04.2-server-amd64.iso",
+        "http://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04.2-server-amd64.iso"
       ],
       "iso_checksum_type": "sha256",
-      "iso_checksum": "16afb1375372c57471ea5e29803a89a5a6bd1f6aabea2e5e34ac1ab7eb9786ac",
-      "output_directory": "packer-ubuntu-16.04-amd64-vmware",
+      "iso_checksum": "a2cb36dc010d98ad9253ea5ad5a07fd6b409e3412c48f1860536970b073c98f5",
+      "output_directory": "packer-imagehub-ubuntu-18.04.2-server-amd64",
       "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
       "ssh_password": "vagrant",
       "ssh_port": 22,
       "ssh_username": "vagrant",
       "ssh_wait_timeout": "10000s",
       "tools_upload_flavor": "linux",
-      "vm_name": "packer-imagehub-ubuntu-16.04-amd64",
+      "vm_name": "packer-imagehub-ubuntu-18.04.2-server-amd64",
       "vmx_data": {
         "cpuid.coresPerSocket": "1",
         "memsize": "512",
