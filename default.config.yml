@@ -1,7 +1,7 @@
 ---
 
-vagrant_box: imagehub-beaver64
-vagrant_box_url: file://packer/build/imagehub-beaver64.box
+vagrant_box: imagehub-bionic64
+vagrant_box_url: file://packer/build/imagehub-bionic64.box
 
 vagrant_user: vagrant
 vagrant_synced_folder_default_type: nfs
@@ -51,6 +51,7 @@ blacklight_domain: blacklight.box
 dashboard_domain: dashboard.box
 imagehub_domain: imagehub.box
 cantaloupe_domain: cantaloupe.box
+resourcespace_domain: resourcespace.box
 
 # Nginx hosts. Each site will get a server entry using the configuration defined
 # here. 
@@ -60,3 +61,4 @@ nginx_hosts:
   - server_name: "{{ dashboard_domain }} www.{{ dashboard_domain }}"
   - server_name: "{{ imagehub_domain }} www.{{ imagehub_domain }}"
   - server_name: "{{ cantaloupe_domain }} www.{{ cantaloupe_domain }}"
+  - server_name: "{{ resourcespace_domain }} www.{{ resourcespace_domain }}"

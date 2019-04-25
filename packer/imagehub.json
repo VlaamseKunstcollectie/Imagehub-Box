@@ -24,7 +24,7 @@
         "../ansible/roles/external/geerlingguy.php-mysql",
         "../ansible/roles/external/geerlingguy.composer",
         "../ansible/roles/external/undergreen.mongo",
-        "../ansible/roles/internal/geerlingguy.java",
+        "../ansible/roles/external/geerlingguy.java",
         "../ansible/roles/external/rvm.ruby",
         "../ansible/roles/external/islandora.tomcat",
         "../ansible/roles/external/islandora.cantaloupe"
@@ -38,7 +38,7 @@
 	],
 	"post-processors": [
 		{
-			"output": "build/imagehub-beaver64.box",
+			"output": "build/imagehub-bionic64.box",
 			"type": "vagrant"
 		}
 	],
@@ -89,7 +89,7 @@
       "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
       "guest_additions_path": "VBoxGuestAdditions.iso",
       "virtualbox_version_file": "",
-      "vm_name": "packer-imagehub-ubuntu-16.04-amd64",
+      "vm_name": "packer-imagehub-ubuntu-18.04.2-server-amd64",
       "vboxmanage": [
         [
           "modifyvm",
@@ -144,14 +144,14 @@
       ],
       "iso_checksum_type": "sha256",
       "iso_checksum": "a2cb36dc010d98ad9253ea5ad5a07fd6b409e3412c48f1860536970b073c98f5",
-      "output_directory": "packer-ubuntu-16.04-amd64-vmware",
+      "output_directory": "packer-imagehub-ubuntu-18.04.2-server-amd64",
       "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
       "ssh_password": "vagrant",
       "ssh_port": 22,
       "ssh_username": "vagrant",
       "ssh_wait_timeout": "10000s",
       "tools_upload_flavor": "linux",
-      "vm_name": "packer-imagehub-ubuntu-16.04-amd64",
+      "vm_name": "packer-imagehub-ubuntu-18.04.2-server-amd64",
       "vmx_data": {
         "cpuid.coresPerSocket": "1",
         "memsize": "512",
