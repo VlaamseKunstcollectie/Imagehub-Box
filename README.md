@@ -140,6 +140,7 @@ entries. If this hasn't happened, append these lines to your `/etc/hosts` file:
 ```bash
 192.168.1.152   datahub.box      # http://datahub.box
 192.168.1.152   blacklight.box   # http://blacklight.box
+192.168.1.152   resourcespace.box   # http://resourcespace.box
 ```
 
 Access:
@@ -147,6 +148,7 @@ Access:
 | URL                         |  Destination                       |
 | --------------------------- |  --------------------------------- |
 |  http://datahub.box         |  Your datahub instance             |
+|  http://resourcespace.box   |  Your resourcespace instance       |
 |  http://blacklight.box      |  Your Project Blacklight instance  |
 |  http://blacklight.box:3000 |  Direct access to Rails server     |
 |  http://blacklight.box:8983 |  Direct access to Solr             |
@@ -159,7 +161,18 @@ a remote host.
 
 The Datahub box provides you with a fully fledged environment in which you can
 deploy an instance of [thedatahub/datahub](github.com/thedatahub/datahub) and
-(optional) an instance of [projectblacklight/blacklight](https://github.com/projectblacklight/blacklight).
+(optional) an instance of [projectblacklight/blacklight](https://github.com/projectblacklight/blacklight). 
+
+To get Resourcespace up and running, you'll need to:
+- download [resourcespace](https://www.resourcespace.com/get).
+- Put the download in your shared vagrant folder that you specified in the 'vagrant_synced_folders' variable in config.yml (cfr "Configuration"). 
+- once your vagrant box is up and running, create an empty mysql database called 'resourcespace':
+  - in the directory of your box installation, run `vagrant ssh`
+  - while logged in to your box, log in to mysql with `mysql -u root -p`
+  - enter the mysql password, which by default should be `root``
+  - create a new database called resourcespace with `create database resourcespace;` (don't forget the trailing semicolon!)
+  - exit out of mysql with `exit`
+- you should now be able to surf to resourcespace.box and configure your resourcespace installation. Don't forget to keep the admin user and password you create during this configuration somewhere safe! you'll have to reinstall your instance of resourcespace if you lose it. 
 
 This box contains Ubuntu 14.04.1 Server (AMD 64) with these packages:
 
@@ -168,7 +181,7 @@ This box contains Ubuntu 14.04.1 Server (AMD 64) with these packages:
 * Ruby 2.5.3 via rvm (with rails and bundler)
 * Oracle Java 8
 * Nginx
-* MongoDB 3.2
+* MongoDB 3.6
 * Rails 5.0.0
 
 ## Credits
