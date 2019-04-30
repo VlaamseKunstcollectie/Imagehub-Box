@@ -1,1 +1,3 @@
 ---
+tomcat8_users: 
+  - { username: "user", password: "pass", roles: ['manager-gui'] }

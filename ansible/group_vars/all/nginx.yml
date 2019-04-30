@@ -74,6 +74,22 @@ nginx_vhosts:
       }
 
   - listen: "80"
+    server_name: "cantaloupe.box"
+    root: "/vagrant/project-cantaloupe"
+    index: "index.php index.html index.htm"
+    access_log: "/var/log/nginx/cantaloupe_access.log"
+    error_log: "/var/log/nginx/cantaloupe_error.log"
+    extra_parameters: |
+      location / {
+        proxy_pass         http://127.0.0.1:8080/cantaloupe/;
+        proxy_redirect     off;
+
+        proxy_set_header   Host             $host;
+        proxy_set_header   X-Real-IP        $remote_addr;
+        proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+      }
+
+  - listen: "80"
     server_name: "dashboard.box"
     root: "/vagrant/dashboard/web"
     index: "index.php index.html index.htm"
