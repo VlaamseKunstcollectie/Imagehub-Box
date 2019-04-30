@@ -27,7 +27,7 @@
         "../ansible/roles/external/geerlingguy.java",
         "../ansible/roles/external/rvm.ruby",
         "../ansible/roles/external/islandora.tomcat",
-        "../ansible/roles/external/islandora.cantaloupe"
+        "../ansible/roles/internal/islandora.cantaloupe"
       ]
     },
     {
