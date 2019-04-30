@@ -165,10 +165,12 @@ This box contains Ubuntu 14.04.1 Server (AMD 64) with these packages:
 * Git
 * PHP-FPM 7 (with mongdb extension)
 * Ruby 2.5.3 via rvm (with rails and bundler)
-* Oracle Java 8
+* OpenJDK 11
 * Nginx
 * MongoDB 3.6
 * Rails 5.0.0
+* Cantaloupe 4.1
+* Tomcat 8
 
 The Datahub box provides you with a fully fledged environment in which you can
 deploy an instance of [thedatahub/datahub](github.com/thedatahub/datahub) and
