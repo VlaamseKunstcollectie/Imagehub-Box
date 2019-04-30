@@ -192,11 +192,11 @@ To get Resourcespace up and running, you'll need to:
 - Ansible should download the Cantaloupe installation in opt/cantaloupe in your vagrant box, and should copy the war file to the tomcat8 webapps folder (var/lib/tomcat8/webapps).The -DCantaloupe config file should be automatically set to tomcat in the tomcat group_vars.
 - to start tomcat and run Cantaloupe, `vagrant ssh` in to your box and check the status of your tomcat server by using `service tomcat8 status`.
 - If tomcat is not running, you can start it with `service tomcat8 start`. If you encounter a 'failed to start service' error, rerun the command with `sudo`. 
-- you can now check the status of tomcat again, and if it is running it should be accessible on your vagrant_ip you specified in config.yml, by default on port 8080, e.g. 192.168.2.152:8080 . You should see an 'it works!' tomcat message. To see if cantaloupe is running, you can go to 192.168.2.152:8080/cantaloupe/ , or surf to cantaloupe.box to see if nginx is listening correctly. 
+- you can now check the status of tomcat again, and if it is running it should be accessible on your vagrant_ip you specified in config.yml, by default on port 8080, e.g. 192.168.2.152:8080 . You should see an 'it works!' tomcat message. To see if cantaloupe is running, you can go to 192.168.2.152:8080/cantaloupe/ , or surf to cantaloupe.box .
 - You can access the tomcat manager console at 192.168.2.152:8080/manager/html, which you can access with the username and password defined in the tomcat.yml group variables (default they are 'user' and 'pass')
 - to stop Cantaloupe and tomcat, as vagrant ssh you should use `service tomcat8 stop`, or sudo if that doesn't work. 
 - you can edit cantaloupe properties using the cantaloupe.yml group_vars file and then reprovisioning your box, or directly while in your vagrant box by editing the cantaloupe.properties file in opt/cantaloupe/cantaloupe.properties. 
-- you can use the cantaloupe admin console by surfing to 192.168.2.152:8080/cantaloupe/admin. The password is set in the cantaloupe.yml group variables, by default it is set to 'pass' (the username is always 'admin'). Cantaloupe can also be configured from that admin panel.
+- you can use the cantaloupe admin console by surfing to 192.168.2.152:8080/cantaloupe/admin or to cantaloupe.box/cantaloupe/admin. The password is set in the cantaloupe.yml group variables, by default it is set to 'pass' (the username is always 'admin'). Cantaloupe can also be configured from that admin panel.
 
 
 
