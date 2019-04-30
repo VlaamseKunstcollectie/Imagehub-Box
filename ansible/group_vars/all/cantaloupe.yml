@@ -21,4 +21,6 @@ cantaloupe_deploy_war_filename: cantaloupe
 # Create the filesystem cache directory automatically
 cantaloupe_create_FilesystemCache_dir: no
 
+#enable the cantaloupe admin console and set its password
 cantaloupe_admin_enabled: true
+cantaloupe_admin_password: pass

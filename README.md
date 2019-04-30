@@ -182,7 +182,7 @@ To get Resourcespace up and running, you'll need to:
 - once your vagrant box is up and running, create an empty mysql database called 'resourcespace':
   - in the directory of your box installation, run `vagrant ssh`
   - while logged in to your box, log in to mysql with `mysql -u root -p`
-  - enter the mysql password, which by default should be `root``
+  - enter the mysql password, which by default should be `root`
   - create a new database called resourcespace with `create database resourcespace;` (don't forget the trailing semicolon!)
   - exit out of mysql with `exit`
 - you should now be able to surf to resourcespace.box and configure your resourcespace installation. Don't forget to keep the admin user and password you create during this configuration somewhere safe! you'll have to reinstall your instance of resourcespace if you lose it. 
@@ -196,6 +196,9 @@ To get Resourcespace up and running, you'll need to:
 - You can access the tomcat manager console at 192.168.2.152:8080/manager/html, which you can access with the username and password defined in the tomcat.yml group variables (default they are 'user' and 'pass')
 - to stop Cantaloupe and tomcat, as vagrant ssh you should use `service tomcat8 stop`, or sudo if that doesn't work. 
 - you can edit cantaloupe properties using the cantaloupe.yml group_vars file and then reprovisioning your box, or directly while in your vagrant box by editing the cantaloupe.properties file in opt/cantaloupe/cantaloupe.properties. 
+- you can use the cantaloupe admin console by surfing to 192.168.2.152:8080/cantaloupe/admin. The password is set in the cantaloupe.yml group variables, by default it is set to 'pass' (the username is always 'admin'). Cantaloupe can also be configured from that admin panel.
+
+
 
 ## Credits
 
@@ -203,6 +206,7 @@ To get Resourcespace up and running, you'll need to:
 ## Authors
 
 * Matthias Vandermaesen <matthias.vandermaesen@vlaamsekunstcollectie.be>
+* Jolan Wuyts <jolan.wuyts@vlaamsekunstcollectie.be>
 
 ## Copyright
 
