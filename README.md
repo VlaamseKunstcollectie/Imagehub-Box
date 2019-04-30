@@ -147,6 +147,7 @@ Access:
 
 | URL                         |  Destination                       |
 | --------------------------- |  --------------------------------- |
+|  http://cantaloupe.box      |  Your cantaloupe server            |
 |  http://datahub.box         |  Your datahub instance             |
 |  http://resourcespace.box   |  Your resourcespace instance       |
 |  http://blacklight.box      |  Your Project Blacklight instance  |
