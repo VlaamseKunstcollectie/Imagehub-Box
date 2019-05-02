@@ -22,5 +22,5 @@ cantaloupe_deploy_war_filename: cantaloupe
 cantaloupe_create_FilesystemCache_dir: no
 
 #enable the cantaloupe admin console and set its password
-cantaloupe_admin_enabled: true
-cantaloupe_admin_password: pass
+cantaloupe_endpoint_admin_enabled: "true"
+cantaloupe_endpoint_admin_secret: pass
