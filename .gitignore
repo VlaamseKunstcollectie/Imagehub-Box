@@ -1,5 +1,5 @@
 .vagrant
-config.yml
+/config.yml
 **/*.retry
 packer/packer_cache
 packer/build/*.box
