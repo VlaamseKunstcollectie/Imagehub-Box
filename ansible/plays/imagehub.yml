@@ -61,6 +61,5 @@
     - { role: rvm.ruby,                              tags: [ "ruby" ] }
     - { role: islandora.tomcat,                      tags: [ "tomcat" ] }
     - { role: islandora.cantaloupe,                  tags: [ "cantaloupe" ] }
-   # - { role: cimon.imagemagick,                     tags: [ "imagemagick" ] }
     
     
