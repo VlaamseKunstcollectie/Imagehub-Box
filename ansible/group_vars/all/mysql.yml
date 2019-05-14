@@ -1,0 +1,6 @@
+# creates a database for resourcespace
+mysql_databases:
+  - name: resourcespace
+    collation: utf8_general_ci
+    encoding: utf8
+    replicate: 1
