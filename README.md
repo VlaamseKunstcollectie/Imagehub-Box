@@ -179,9 +179,16 @@ deploy an instance of [thedatahub/datahub](github.com/thedatahub/datahub) and
 ## Getting ResourceSpace running
 
 To get Resourcespace up and running, you'll need to:
+
 - download [resourcespace](https://www.resourcespace.com/get).
 - Put the download in your shared vagrant folder that you specified in the 'vagrant_synced_folders' variable in config.yml (cfr "Configuration").
-- you should now be able to surf to resourcespace.box and configure your resourcespace installation. Don't forget to keep the admin user and password you create during this configuration somewhere safe! you'll have to reinstall your instance of resourcespace if you lose it. 
+- you should now be able to surf to resourcespace.box and configure your resourcespace installation. 
+  - Fill in the credentials of the database:
+    - MySQL server: localhost
+    - MySQL username: resourcespace
+    - MySQL password: r3sourcespac3
+    - MySQL database: resourcespace
+  - Don't forget to keep the admin user and password you create during this configuration somewhere safe! you'll have to reinstall your instance of resourcespace if you lose it. 
 
 ## Getting Cantaloupe running
 
