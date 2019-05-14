@@ -10,3 +10,6 @@ php_fpm_daemon: php7.0-fpm
 
 php_display_errors: "On"
 php_display_startup_errors: "On"
+
+php_post_max_size: "100M"
+php_upload_max_filesize: "100M"
