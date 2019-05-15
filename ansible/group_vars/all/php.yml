@@ -11,5 +11,7 @@ php_fpm_daemon: php7.0-fpm
 php_display_errors: "On"
 php_display_startup_errors: "On"
 
+#ResourceSpace needs bigger PHP post max sizes an max upload file sizes. 
+#You may comment these out if you don't plan on installing or using ResourceSpace in this box. 
 php_post_max_size: "100M"
 php_upload_max_filesize: "100M"
