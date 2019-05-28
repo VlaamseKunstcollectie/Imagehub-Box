@@ -202,9 +202,31 @@ To get Resourcespace up and running, you'll need to:
 - you can use the cantaloupe admin console by surfing to 192.168.2.152:8080/cantaloupe/admin or to cantaloupe.box/cantaloupe/admin. The password is set in the cantaloupe.yml group variables, by default it is set to 'pass' (the username is always 'admin'). Cantaloupe can also be configured from that admin panel.
 
 
+## Mail
+
+Applications might need to send out e-mail notifications (i.e. a password reset.). 
+This box is provisioned with Postfix/Sendmail and uses GMail IMAP as a relay.
+
+You will need a valid GMail address with a password (or an application token if 
+you have 2-Factor Authentication set up). Configuration is done by overriding
+the Ansible role variables. 
+
+1. Add a `common.yml` file to `ansible/group_vars/all`
+2. Add this to the file and save the file:
+
+```yaml
+
+## List of password for relay
+# postfix_sasl_passwd:
+# - mail.my-isp.org      test:testpass
+postfix_sasl_passwd:
+  - "[smtp.gmail.com]:587    test@gmail.com:testpass"
+```
+
+3. Provision the box via `ansible-playbook` or create a new box via `packer`.
+
 
 ## Credits
-
 
 ## Authors
 
