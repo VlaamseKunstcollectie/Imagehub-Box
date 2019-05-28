@@ -36,6 +36,10 @@
   version: "master"
   name: geerlingguy.mysql
 
+- src: git+https://github.com/geerlingguy/ansible-role-postfix
+  version: "2.0.0"
+  name: geerlingguy.postfix
+
 - src: git+https://github.com/geerlingguy/ansible-role-php-mysql
   version: "master"
   name: geerlingguy.php-mysql

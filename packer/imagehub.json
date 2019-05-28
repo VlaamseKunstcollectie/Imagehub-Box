@@ -18,6 +18,7 @@
       "role_paths": [
         "../ansible/roles/external/geerlingguy.git",
         "../ansible/roles/external/geerlingguy.nginx",
+        "../ansible/roles/external/geerlingguy.postfix",
         "../ansible/roles/external/geerlingguy.php",
         "../ansible/roles/external/geerlingguy.php-pecl",
         "../ansible/roles/external/geerlingguy.mysql",
