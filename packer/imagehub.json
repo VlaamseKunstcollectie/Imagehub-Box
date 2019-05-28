@@ -28,7 +28,8 @@
         "../ansible/roles/external/geerlingguy.java",
         "../ansible/roles/external/rvm.ruby",
         "../ansible/roles/external/islandora.tomcat",
-        "../ansible/roles/internal/islandora.cantaloupe"
+        "../ansible/roles/internal/islandora.cantaloupe",
+        "../ansible/roles/internal/imagehub.common"
       ]
     },
     {

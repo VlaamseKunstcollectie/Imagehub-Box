@@ -1,0 +1,5 @@
+---
+# handlers file for imagehub.common
+
+- name: reload postfix
+  service: name=postfix state=restarted

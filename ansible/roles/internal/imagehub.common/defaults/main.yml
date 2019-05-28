@@ -1,0 +1,18 @@
+---
+# defaults file for imagehub.common
+
+## List of password for relay
+# postfix_sasl_passwd:
+# - mail.my-isp.org      test:testpass
+postfix_sasl_passwd:
+  - "[smtp.gmail.com]:587    test:testpass"
+
+# Postfix
+
+relayhost: "[smtp.gmail.com]:587"
+smtp_sasl_auth_enable: yes
+smtp_sasl_password_maps: "hash:/etc/postfix/sasl_passwd"
+smtp_sasl_security_options: noanonymous
+smtp_tls_CApath: /etc/ssl/certs
+smtpd_tls_CApath: /etc/ssl/certs
+smtp_use_tls: yes

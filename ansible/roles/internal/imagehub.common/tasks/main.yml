@@ -1,0 +1,43 @@
+---
+# tasks file for imagehub.common
+
+# Setup Postfix to work with GMail SMTP relay instead of setting up our own
+
+- name: Update Postfix configuration.
+  lineinfile:
+    dest: "{{ postfix_config_file }}"
+    line: "{{ item.name }} = {{ item.value }}"
+    regexp: "^{{ item.name }} ="
+  with_items:
+    - name: relayhost
+      value: "{{ relayhost }}"
+    - name: smtp_sasl_auth_enable
+      value: "{{ smtp_sasl_auth_enable }}"
+    - name: smtp_sasl_password_maps
+      value: "{{ smtp_sasl_password_maps }}"
+    - name: smtp_sasl_security_options
+      value: "{{ smtp_sasl_security_options }}"
+    - name: smtp_tls_CApath
+      value: "{{ smtp_tls_CApath }}"
+    - name: smtpd_tls_CApath
+      value: "{{ smtpd_tls_CApath }}"
+    - name: smtp_use_tls
+      value: "{{ smtp_use_tls }}"
+    - name: inet_interfaces
+      value: "{{ postfix_inet_interfaces }}"
+    - name: inet_protocols
+      value: "{{ postfix_inet_protocols }}"
+  notify: restart postfix
+
+- name: create sasl_password configuration
+  template: src=sasl_passwd.j2 dest=/etc/postfix/sasl_passwd mode=0400 owner=root group=root
+  notify: reload postfix
+  register: postfix_sasl_passwd_result
+  when: postfix_sasl_passwd.0 is defined
+
+- name: ensure sasl_password is compiled
+  shell: postmap /etc/postfix/sasl_passwd
+  notify: reload postfix
+  when: postfix_sasl_passwd_result | changed
+
+
