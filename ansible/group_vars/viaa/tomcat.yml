@@ -1,0 +1,8 @@
+---
+tomcat8_users: 
+  - { username: "user", password: "pass", roles: ['manager-gui'] }
+tomcat8_java_opts:
+  - -Djava.awt.headless=true
+  - -Xmx2g
+  - -XX:+UseConcMarkSweepGC
+  - -Dcantaloupe.config=/opt/cantaloupe/cantaloupe.properties

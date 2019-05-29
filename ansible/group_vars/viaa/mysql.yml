@@ -1,0 +1,13 @@
+# creates a database for resourcespace
+mysql_databases:
+  - name: resourcespace
+    collation: utf8_general_ci
+    encoding: utf8
+    replicate: 1
+
+# creates a user with username user and password pass
+# the user can only use the resourcespace database.
+mysql_users:
+  - name: resourcespace
+    password: r3sourcespac3
+    priv: resourcespace.*:ALL

@@ -1,21 +1,21 @@
 ---
 
 - name: imagehub.yml | All roles
-  hosts: imagehub
+  hosts: viaa
   become: true
   gather_facts: true
 
   vars_files:
-    - ../group_vars/viaa/cantaloupe.yml
-    - ../group_vars/viaa/common.yml
-    - ../group_vars/viaa/java.yml
-    - ../group_vars/viaa/mongo.yml
-    - ../group_vars/viaa/mysql.yml
-    - ../group_vars/viaa/nginx.yml
-    - ../group_vars/viaa/php-pecl.yml
-    - ../group_vars/viaa/php.yml
-    - ../group_vars/viaa/ruby.yml
-    - ../group_vars/viaa/tomcat.yml
+    - ../group_vars/all/cantaloupe.yml
+    - ../group_vars/all/common.yml
+    - ../group_vars/all/java.yml
+    - ../group_vars/all/mongo.yml
+    - ../group_vars/all/mysql.yml
+    - ../group_vars/all/nginx.yml
+    - ../group_vars/all/php-pecl.yml
+    - ../group_vars/all/php.yml
+    - ../group_vars/all/ruby.yml
+    - ../group_vars/all/tomcat.yml
 
   pre_tasks:
 
