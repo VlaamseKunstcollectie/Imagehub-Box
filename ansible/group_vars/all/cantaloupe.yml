@@ -21,4 +21,16 @@ cantaloupe_deploy_war_filename: cantaloupe
 # Create the filesystem cache directory automatically
 cantaloupe_create_FilesystemCache_dir: no
 
+# Built-in processors are `Java2dProcessor`, `GraphicsMagickProcessor`,
+# `ImageMagickProcessor`, `TurboJpegProcessor`, `KakaduNativeProcessor`,
+# `KakaduDemoProcessor`, `OpenJpegProcessor`, `JaiProcessor`,
+# `PdfBoxProcessor`, and `FfmpegProcessor`.
+# Some of these have third-party dependencies and won't work out-of-the-box.
+cantaloupe_processor_ManualSelectionStrategy_tif : ImageMagickProcessor
 
+# preserve image metadata
+cantaloupe_processor_metadata_preserve : "true"
+
+# Server-side path that will be prefixed to the identifier in the URL.
+# Trailing slash is important!
+cantaloupe_FilesystemSource_BasicLookupStrategy_path_prefix : /home/vkcuser/images/
