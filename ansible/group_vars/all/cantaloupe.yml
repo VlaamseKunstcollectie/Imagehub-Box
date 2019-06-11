@@ -17,7 +17,7 @@ cantaloupe_deploy_war: yes
 # Where to deploy the war to
 cantaloupe_deploy_war_path: /var/lib/tomcat8/webapps
 # Name for the deployed war (minus .war), this is the context path
-cantaloupe_deploy_war_filename: cantaloupe
+cantaloupe_deploy_war_filename: ROOT
 # Create the filesystem cache directory automatically
 cantaloupe_create_FilesystemCache_dir: no
 
@@ -33,4 +33,4 @@ cantaloupe_processor_metadata_preserve : "true"
 
 # Server-side path that will be prefixed to the identifier in the URL.
 # Trailing slash is important!
-cantaloupe_FilesystemSource_BasicLookupStrategy_path_prefix : /home/vkcuser/images/
+cantaloupe_FilesystemSource_BasicLookupStrategy_path_prefix : /home/vagrant/images/
