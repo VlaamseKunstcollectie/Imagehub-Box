@@ -3,3 +3,7 @@
 
 - name: reload postfix
   service: name=postfix state=restarted
+
+- name: restart tomcat8
+  service: name=tomcat8 state=restarted
+

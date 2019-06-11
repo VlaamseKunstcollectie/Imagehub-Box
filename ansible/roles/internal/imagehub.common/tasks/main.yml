@@ -40,4 +40,17 @@
   notify: reload postfix
   when: postfix_sasl_passwd_result | changed
 
+# TOMCAT 8
 
+# Remove ROOT from webapps. We replace it with a renamed cantaloupe.war to ROOT.war file
+
+- name: Check if Cantaloupe was installed in Tomcat8 webapps directory
+  stat: path=/var/lib/tomcat8/webapps/ROOT.war
+  register: canta_stat
+
+- name: Remove the ROOT folder from Tomcat8 webapps
+  file:
+    path: /var/lib/tomcat8/webapps/ROOT
+    state: absent
+  notify: restart tomcat8
+  when: canta_stat.stat.exists
