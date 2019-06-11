@@ -7,4 +7,5 @@ output-virtualbox-iso
 output-vmware-iso
 ansible/roles/external/*
 ansible/imagehub
+ansible/.vault_pass
 .DS_Store

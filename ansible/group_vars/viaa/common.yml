@@ -4,5 +4,4 @@
 # postfix_sasl_passwd:
 # - mail.my-isp.org      test:testpass
 postfix_sasl_passwd:
-  - "[smtp.gmail.com]:587    vlaamsekunstcollectie@gmail.com:qbxlhhxmwwmnspzq"
-
+  - "{{ vault_postfix_sasl_passwd }}"

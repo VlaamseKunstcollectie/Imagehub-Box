@@ -7,7 +7,4 @@ mysql_databases:
 
 # creates a user with username user and password pass
 # the user can only use the resourcespace database.
-mysql_users:
-  - name: resourcespace
-    password: r3sourcespac3
-    priv: resourcespace.*:ALL
+mysql_users: "{{ vault_mysql_users }}"

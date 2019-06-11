@@ -6,18 +6,12 @@ mongodb_version: "3.6"
 mongodb_security_authorization: "enabled"
 
 mongodb_user_admin_name: "siteUserAdmin"
-mongodb_user_admin_password: "passw0rd"
+mongodb_user_admin_password: "{{ vault_mongodb_user_admin_password }}"
 
 mongodb_root_admin_name: "siteRootAdmin"
-mongodb_root_admin_password: "passw0rd"
+mongodb_root_admin_password: "{{ vault_mongodb_root_admin_password }}"
 
 mongodb_root_backup_name: "backupuser"
-mongodb_root_backup_password: "passw0rd"
+mongodb_root_backup_password: "{{ vault_mongodb_root_backup_password }}"
 
-mongodb_users:
-  - {
-    name: "datahub",
-    password: "datahub",
-    roles: "dbAdmin",
-    database: "admin"
-}
+mongodb_users: "{{ vault_mongodb_datahub_users }}"
