@@ -8,6 +8,10 @@
   version: "master"
   name: geerlingguy.nginx
 
+- src: git+https://github.com/geerlingguy/ansible-role-certbot
+  version: "3.0.2"
+  name: geerlingguy.letsencrypt
+
 - src: git+https://github.com/geerlingguy/ansible-role-php.git
   version: "master"
   name: geerlingguy.php
@@ -48,6 +52,6 @@
   version: "v1.0.0"
   name: cimon.imagemagick
 
-- src: https://github.com/Islandora-DevOps/ansible-role-tomcat8
+- src: git+https://github.com/Islandora-DevOps/ansible-role-tomcat8
   version: "0.0.2"
   name: islandora.tomcat

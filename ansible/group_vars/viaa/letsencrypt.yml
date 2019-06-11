@@ -1,0 +1,13 @@
+---
+certbot_create_command: "{{ certbot_script }} certonly --standalone --noninteractive --expand --agree-tos --email {{ cert_item.email | default(certbot_admin_email) }} -d {{ cert_item.domains | join(',') }}"
+certbot_create_if_missing: yes
+certbot_create_method: standalone
+certbot_admin_email: vlaamsekunstcollectie@gmail.com
+certbot_certs:
+  - email: vlaamsekunstcollectie@gmail.com
+    domains:
+        - images.vlaamsekunstcollectie.be
+        - datahub.iiif.vlaamsekunstcollectie.be
+        - imagehub.vlaamsekunstcollectie.be
+        - arthub.iiif.vlaamsekunstcollectie.be
+        - ingest.vlaamsekunstcollectie.be

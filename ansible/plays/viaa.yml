@@ -66,6 +66,7 @@
   roles:
     - { role: geerlingguy.git,                       tags: [ "git" ] }
     - { role: geerlingguy.nginx,                     tags: [ "nginx" ] }
+    - { role: geerlingguy.letsencrypt,               tags: [ "letsencrypt" ] }
     - { role: geerlingguy.postfix,                   tags: [ "postfix" ] }
     - { role: geerlingguy.php,                       tags: [ "php" ] }
     - { role: geerlingguy.php-pecl,                  tags: [ "php-pecl" ] }
