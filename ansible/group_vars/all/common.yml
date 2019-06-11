@@ -1,0 +1,7 @@
+---
+
+## List of password for relay
+# postfix_sasl_passwd:
+# - mail.my-isp.org      test:testpass
+postfix_sasl_passwd:
+  - "mail.my-isp.org      test:testpass"
