@@ -23,6 +23,7 @@
         "../ansible/roles/external/geerlingguy.php-pecl",
         "../ansible/roles/external/geerlingguy.mysql",
         "../ansible/roles/external/geerlingguy.php-mysql",
+        "../ansible/roles/internal/imagehub.php-magick",
         "../ansible/roles/external/geerlingguy.composer",
         "../ansible/roles/external/undergreen.mongo",
         "../ansible/roles/external/geerlingguy.java",
