@@ -19,18 +19,66 @@ cantaloupe_deploy_war_path: /var/lib/tomcat8/webapps
 # Name for the deployed war (minus .war), this is the context path
 cantaloupe_deploy_war_filename: ROOT
 # Create the filesystem cache directory automatically
-cantaloupe_create_FilesystemCache_dir: no
+cantaloupe_create_FilesystemCache_dir: no 
+
+# preserve image metadata
+cantaloupe_processor_metadata_preserve : "true"
+
+# Enables the Control Panel, at /admin.
+#cantaloupe_endpoint_admin_enabled : "true"
+#cantaloupe_endpoint_admin_username : admin
+#cantaloupe_endpoint_admin_secret : admin
+
+# Server-side path that will be prefixed to the identifier in the URL.
+# Trailing slash is important!
+cantaloupe_FilesystemSource_BasicLookupStrategy_path_prefix : /vagrant/images/
+
+# Enables the derivative (processed image) cache.
+cantaloupe_cache_server_derivative_enabled : "true"
+
+# Available values are `FilesystemCache`, `JdbcCache`, `RedisCache`,
+# `HeapCache`, `S3Cache`, and `AzureStorageCache`.
+cantaloupe_cache_server_derivative : "FilesystemCache"
+
+# If "true", the source image will be confirmed to exist before a cached copy
+# is returned. If "false", the cached copy will be returned without checking.
+# Resolving first is safer but slower.
+cantaloupe_cache_server_resolve_first : "false"
+
+#----------------------------------------
+# Processor Selection
+#----------------------------------------
+
+# * If set to `AutomaticSelectionStrategy`, a "best" available processor
+#   will be selected per-request based on formats and installed
+#   dependencies.
+# * If set to `ManualSelectionStrategy`, a processor will be chosen based
+#   on the rest of the keys in this section.
+cantaloupe_processor_selection_strategy : ManualSelectionStrategy
 
 # Built-in processors are `Java2dProcessor`, `GraphicsMagickProcessor`,
 # `ImageMagickProcessor`, `TurboJpegProcessor`, `KakaduNativeProcessor`,
 # `KakaduDemoProcessor`, `OpenJpegProcessor`, `JaiProcessor`,
 # `PdfBoxProcessor`, and `FfmpegProcessor`.
 # Some of these have third-party dependencies and won't work out-of-the-box.
-cantaloupe_processor_ManualSelectionStrategy_tif : ImageMagickProcessor
 
-# preserve image metadata
-cantaloupe_processor_metadata_preserve : "true"
+# These format-specific definitions are optional.
+cantaloupe_processor_ManualSelectionStrategy_avi : FfmpegProcessor
+cantaloupe_processor_ManualSelectionStrategy_bmp :
+cantaloupe_processor_ManualSelectionStrategy_dcm : ImageMagickProcessor
+cantaloupe_processor_ManualSelectionStrategy_flv : FfmpegProcessor
+cantaloupe_processor_ManualSelectionStrategy_gif :
+cantaloupe_processor_ManualSelectionStrategy_jp2 : KakaduNativeProcessor
+cantaloupe_processor_ManualSelectionStrategy_jpg :
+cantaloupe_processor_ManualSelectionStrategy_mov : FfmpegProcessor
+cantaloupe_processor_ManualSelectionStrategy_mp4 : FfmpegProcessor
+cantaloupe_processor_ManualSelectionStrategy_mpg : FfmpegProcessor
+cantaloupe_processor_ManualSelectionStrategy_pdf : PdfBoxProcessor
+cantaloupe_processor_ManualSelectionStrategy_png :
+cantaloupe_processor_ManualSelectionStrategy_tif :  JaiProcessor
+cantaloupe_processor_ManualSelectionStrategy_webm : FfmpegProcessor
+cantaloupe_processor_ManualSelectionStrategy_webp : ImageMagickProcessor
 
-# Server-side path that will be prefixed to the identifier in the URL.
-# Trailing slash is important!
-cantaloupe_FilesystemSource_BasicLookupStrategy_path_prefix : /home/vagrant/images/
+# Fall back to this processor for any formats not assigned above.
+cantaloupe_processor_ManualSelectionStrategy_fallback : ImageMagickProcessor
+
