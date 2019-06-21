@@ -210,7 +210,7 @@ nginx_vhosts:
   - listen: "80"
     server_name: "imagehub.box"
     root: "/vagrant/imagehub/web"
-    index: "app_dev.php index.html index.htm"
+    index: "index.php index.html index.htm"
     access_log: "/var/log/nginx/project_access.log"
     error_log: "/var/log/nginx/project_error.log"
     extra_parameters: |
