@@ -90,22 +90,22 @@ nginx_vhosts:
 
   - listen: "80"
     server_name: "imagehub.vlaamsekunstcollectie.be"
-    root: "/srv/imagehub/imagehub/public"
-    index: "index.php index.html index.htm"
+    root: "/srv/imagehub/imagehub/web"
+    index: "app_dev.php index.html index.htm"
     access_log: "/var/log/nginx/project_access.log"
     error_log: "/var/log/nginx/project_error.log"
     extra_parameters: |
       # All other requests go to Imagehub/Symfony as well
       location = / {
           # try to serve file directly, fallback to app.php
-          try_files $uri /index.php$is_args$args;
+          try_files $uri /app_dev.php$is_args$args;
       }
       
       # ... except for requests that end with manifest.json. Those are 
       # passed to Imagehub/Symfony.
       location ~ ^/iiif/.*/manifest.json$ {
           # try to serve file directly, fallback to app.php
-          try_files $uri /index.php$is_args$args;
+          try_files $uri /app_dev.php$is_args$args;
       }
 
       # Pass everything all requests for /iiif/.* to Tomcat
@@ -135,22 +135,22 @@ nginx_vhosts:
 
   - listen: "80"
     server_name: "images.vlaamsekunstcollectie.be"
-    root: "/srv/imagehub/imagehub/public"
-    index: "index.php index.html index.htm"
+    root: "/srv/imagehub/imagehub/web"
+    index: "app_dev.php index.html index.htm"
     access_log: "/var/log/nginx/project_access.log"
     error_log: "/var/log/nginx/project_error.log"
     extra_parameters: |
       # All other requests go to Imagehub/Symfony as well
       location = / {
           # try to serve file directly, fallback to app.php
-          try_files $uri /index.php$is_args$args;
+          try_files $uri /app_dev.php$is_args$args;
       }
       
       # ... except for requests that end with manifest.json. Those are 
       # passed to Imagehub/Symfony.
       location ~ ^/iiif/.*/manifest.json$ {
           # try to serve file directly, fallback to app.php
-          try_files $uri /index.php$is_args$args;
+          try_files $uri /app_dev.php$is_args$args;
       }
 
       # Pass everything all requests for /iiif/.* to Tomcat
