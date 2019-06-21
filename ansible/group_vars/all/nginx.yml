@@ -149,9 +149,14 @@ nginx_vhosts:
         proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
       }
 
-      # ... except for requests that end with manifest.json. Those are 
+      # ... except for requests that end with manifest.json or contain canvas/*.json. Those are 
       # passed to Imagehub/Symfony.
       location ~ ^/iiif/.*/manifest.json$ {
+          # try to serve file directly, fallback to app.php
+          try_files $uri /app.php$is_args$args;
+      }
+
+      location ~ ^/iiif/.*/canvas/[0-9]+.json$ {
           # try to serve file directly, fallback to app.php
           try_files $uri /app.php$is_args$args;
       }

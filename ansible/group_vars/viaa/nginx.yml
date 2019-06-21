@@ -101,9 +101,14 @@ nginx_vhosts:
           try_files $uri /app.php$is_args$args;
       }
       
-      # Including iiif requests that end with manifest.json. Those are 
+      # Including iiif requests that end with manifest.json or canvas/*.json. Those are 
       # passed to Imagehub/Symfony.
       location ~ ^/iiif/.*/manifest.json$ {
+          # try to serve file directly, fallback to app.php
+          try_files $uri /app.php$is_args$args;
+      }
+
+      location ~ ^/iiif/.*/canvas/[0-9]+.json$ {
           # try to serve file directly, fallback to app.php
           try_files $uri /app.php$is_args$args;
       }
@@ -174,12 +179,18 @@ nginx_vhosts:
           try_files $uri /app.php$is_args$args;
       }
       
-      # Including iiif requests that end with manifest.json. Those are 
+      # Including iiif requests that end with manifest.json or canvas/*.json. Those are 
       # passed to Imagehub/Symfony.
       location ~ ^/iiif/.*/manifest.json$ {
           # try to serve file directly, fallback to app.php
           try_files $uri /app.php$is_args$args;
       }
+
+      location ~ ^/iiif/.*/canvas/[0-9]+.json$ {
+          # try to serve file directly, fallback to app.php
+          try_files $uri /app.php$is_args$args;
+      }
+
 
       # Pass all other requests for /iiif/.* to Tomcat
       location ~ ^/iiif/.*$ {
