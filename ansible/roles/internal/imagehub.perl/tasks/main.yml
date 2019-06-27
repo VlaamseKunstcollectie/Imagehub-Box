@@ -93,7 +93,7 @@
   changed_when: false
 
 - name: install catmandu
-  shell: "{{ plenv.bin }} exec cpanm -n Catmandu Catmandu::MARC  && {{ plenv.bin }} rehash"
+  shell: "{{ plenv.bin }} exec cpanm -n Catmandu Catmandu::MARC Catmandu::DBI && {{ plenv.bin }} rehash"
   args:
     chdir: "{{ home_path }}/"
   become: yes
