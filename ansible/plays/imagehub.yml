@@ -5,17 +5,17 @@
   become: true
   gather_facts: true
 
-  vars_files:
-    - ../group_vars/all/cantaloupe.yml
-    - ../group_vars/all/common.yml
-    - ../group_vars/all/java.yml
-    - ../group_vars/all/mongo.yml
-    - ../group_vars/all/mysql.yml
-    - ../group_vars/all/nginx.yml
-    - ../group_vars/all/php-pecl.yml
-    - ../group_vars/all/php.yml
-    - ../group_vars/all/ruby.yml
-    - ../group_vars/all/tomcat.yml
+  # vars_files:
+  #   - ../group_vars/all/cantaloupe.yml
+  #   - ../group_vars/all/common.yml
+  #   - ../group_vars/all/java.yml
+  #   - ../group_vars/all/mongo.yml
+  #   - ../group_vars/all/mysql.yml
+  #   - ../group_vars/all/nginx.yml
+  #   - ../group_vars/all/php-pecl.yml
+  #   - ../group_vars/all/php.yml
+  #   - ../group_vars/all/ruby.yml
+  #   - ../group_vars/all/tomcat.yml
 
   pre_tasks:
 
@@ -78,6 +78,7 @@
     - { role: rvm.ruby,                              tags: [ "ruby" ] }
     - { role: islandora.tomcat,                      tags: [ "tomcat" ] }
     - { role: islandora.cantaloupe,                  tags: [ "cantaloupe" ] }
+    - { role: imagehub.perl,                         tags: [ "perl" ] }
     - { role: imagehub.common,                       tags: [ "common" ] }
     
     

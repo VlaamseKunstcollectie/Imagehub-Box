@@ -30,6 +30,7 @@
         "../ansible/roles/external/rvm.ruby",
         "../ansible/roles/external/islandora.tomcat",
         "../ansible/roles/internal/islandora.cantaloupe",
+        "../ansible/roles/internal/imagehub.perl",
         "../ansible/roles/internal/imagehub.common"
       ]
     },

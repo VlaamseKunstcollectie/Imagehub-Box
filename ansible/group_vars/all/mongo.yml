@@ -16,8 +16,15 @@ mongodb_root_backup_password: "passw0rd"
 
 mongodb_users:
   - {
-    name: "datahub",
-    password: "datahub",
-    roles: "dbAdmin",
-    database: "admin"
-}
+      name: "datahub",
+      password: "datahub",
+      roles: "dbAdmin",
+      database: "admin"
+    }
+  - {
+      name: "imagehub",
+      password: "imagehub",
+      roles: "dbAdmin",
+      database: "admin"
+    }
+
