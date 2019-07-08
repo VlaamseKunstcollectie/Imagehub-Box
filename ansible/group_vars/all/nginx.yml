@@ -57,7 +57,7 @@ nginx_vhosts:
       }
 
   - listen: "80"
-    server_name: "arthub.box"
+    server_name: "blacklight.box"
     root: "/vagrant/project-blacklight"
     index: "index.php index.html index.htm"
     access_log: "/var/log/nginx/blacklight_project_access.log"
