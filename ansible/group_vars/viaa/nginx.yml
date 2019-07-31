@@ -9,7 +9,6 @@ nginx_vhosts:
     error_log: "/var/log/nginx/project_error.log"
     extra_parameters: |
 
-      # By default, all requests go to Imagehub/Symfony
       location / {
           # try to serve file directly, fallback to app.php
           try_files $uri /app.php$is_args$args;
@@ -57,12 +56,6 @@ nginx_vhosts:
       # this prevents access to other php files you don't want to be accessible.
       location ~ \.php$ {
         return 404;
-      }
-
-      # All other requests go to Imagehub/Symfony as well
-      location ~ ^/.*$ {
-          # try to serve file directly, fallback to app.php
-          try_files $uri /index.php$is_args$args;
       }
 
   - listen: "80"
@@ -120,20 +113,8 @@ nginx_vhosts:
           try_files $uri /app.php$is_args$args;
       }
       
-      # Including iiif requests that end with manifest.json or canvas/*.json. Those are 
-      # passed to Imagehub/Symfony.
-      location ~ ^/iiif/.*/manifest.json$ {
-          # try to serve file directly, fallback to app.php
-          try_files $uri /app.php$is_args$args;
-      }
-
-      location ~ ^/iiif/.*/canvas/[0-9]+.json$ {
-          # try to serve file directly, fallback to app.php
-          try_files $uri /app.php$is_args$args;
-      }
-
       # Pass all other requests for /iiif/.* to Tomcat
-      location ~ ^/iiif/.*$ {
+      location ~ ^/iiif/2/[0-9]+.*$ {
         proxy_pass         http://127.0.0.1:8080;
         proxy_redirect     off;
 
@@ -183,6 +164,12 @@ nginx_vhosts:
       # this prevents access to other php files you don't want to be accessible.
       location ~ \.php$ {
         return 404;
+      }
+
+      # All other requests go to Imagehub/Symfony as well
+      location ~ ^/.*$ {
+          # try to serve file directly, fallback to app.php
+          try_files $uri /index.php$is_args$args;
       }
 
   - listen: "80"
@@ -197,22 +184,9 @@ nginx_vhosts:
           # try to serve file directly, fallback to app.php
           try_files $uri /app.php$is_args$args;
       }
-      
-      # Including iiif requests that end with manifest.json or canvas/*.json. Those are 
-      # passed to Imagehub/Symfony.
-      location ~ ^/iiif/.*/manifest.json$ {
-          # try to serve file directly, fallback to app.php
-          try_files $uri /app.php$is_args$args;
-      }
-
-      location ~ ^/iiif/.*/canvas/[0-9]+.json$ {
-          # try to serve file directly, fallback to app.php
-          try_files $uri /app.php$is_args$args;
-      }
-
 
       # Pass all other requests for /iiif/.* to Tomcat
-      location ~ ^/iiif/.*$ {
+      location ~ ^/iiif/2/[0-9]+.*$ {
         proxy_pass         http://127.0.0.1:8080;
         proxy_redirect     off;
 
@@ -262,4 +236,10 @@ nginx_vhosts:
       # this prevents access to other php files you don't want to be accessible.
       location ~ \.php$ {
         return 404;
+      }
+
+      # All other requests go to Imagehub/Symfony as well
+      location ~ ^/.*$ {
+          # try to serve file directly, fallback to app.php
+          try_files $uri /index.php$is_args$args;
       }
