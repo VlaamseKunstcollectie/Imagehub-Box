@@ -8,6 +8,8 @@ nginx_vhosts:
     access_log: "/var/log/nginx/project_access.log"
     error_log: "/var/log/nginx/project_error.log"
     extra_parameters: |
+
+      # By default, all requests go to Imagehub/Symfony
       location / {
           # try to serve file directly, fallback to app.php
           try_files $uri /app.php$is_args$args;
@@ -55,6 +57,12 @@ nginx_vhosts:
       # this prevents access to other php files you don't want to be accessible.
       location ~ \.php$ {
         return 404;
+      }
+
+      # All other requests go to Imagehub/Symfony as well
+      location ~ ^/.*$ {
+          # try to serve file directly, fallback to app.php
+          try_files $uri /index.php$is_args$args;
       }
 
   - listen: "80"

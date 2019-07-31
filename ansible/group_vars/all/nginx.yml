@@ -79,20 +79,14 @@ nginx_vhosts:
     access_log: "/var/log/nginx/cantaloupe_access.log"
     error_log: "/var/log/nginx/cantaloupe_error.log"
     extra_parameters: |
-      # All other requests go to Imagehub/Symfony as well
+
+      # By default, all requests go to Imagehub/Symfony
       location = / {
           # try to serve file directly, fallback to app.php
           try_files $uri /index.php$is_args$args;
       }
-      
-      # ... except for requests that end with manifest.json. Those are 
-      # passed to Imagehub/Symfony.
-      location ~ ^/iiif/.*/manifest.json$ {
-          # try to serve file directly, fallback to app.php
-          try_files $uri /index.php$is_args$args;
-      }
 
-      # Pass everything all requests for /iiif/.* to Tomcat
+      # Pass all other requests for /iiif/.* to Tomcat
       location ~ ^/iiif/.*$ {
         proxy_pass         http://127.0.0.1:8080;
         proxy_redirect     off;
@@ -115,6 +109,12 @@ nginx_vhosts:
           # for more information).
           fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
           fastcgi_param DOCUMENT_ROOT $realpath_root;
+      }
+
+      # All other requests go to Imagehub/Symfony as well
+      location ~ ^/.*$ {
+          # try to serve file directly, fallback to app.php
+          try_files $uri /index.php$is_args$args;
       }
 
   - listen: "80"
