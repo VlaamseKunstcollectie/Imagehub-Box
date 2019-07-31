@@ -29,7 +29,7 @@
 
     - name: Install System Packages
       apt:
-        pkg:  ['zip', 'unzip', 'libcurl4-openssl-dev', 'pkg-config', 'libsqlite3-dev', 'imagemagick','gpgv2', 'libxml2-dev', 'libxslt1-dev', 'libimage-exiftool-perl']
+        pkg:  ['zip', 'unzip', 'libcurl4-openssl-dev', 'pkg-config', 'libsqlite3-dev', 'imagemagick','gpgv2', 'libxml2-dev', 'libxslt1-dev', 'libimage-exiftool-perl', 'linux-headers-generic', 'linux-libc-dev', 'libexpat1-dev']
         state: latest
 
     - name: Remove system Ruby
@@ -73,12 +73,12 @@
     - { role: geerlingguy.php-mysql,                 tags: [ "mysql" ] }
     - { role: imagehub.php-magick,                   tags: [ "imagick" ] }
     - { role: geerlingguy.composer,                  tags: [ "composer" ] }
+    - { role: imagehub.perl,                         tags: [ "perl" ] }
     - { role: undergreen.mongo,                      tags: [ "mongo" ] }
     - { role: geerlingguy.java,                      tags: [ "java" ] }
     - { role: rvm.ruby,                              tags: [ "ruby" ] }
     - { role: islandora.tomcat,                      tags: [ "tomcat" ] }
     - { role: islandora.cantaloupe,                  tags: [ "cantaloupe" ] }
-    - { role: imagehub.perl,                         tags: [ "perl" ] }
     - { role: imagehub.common,                       tags: [ "common" ] }
     
     

@@ -26,7 +26,7 @@ cantaloupe_processor_metadata_preserve : "true"
 
 # Server-side path that will be prefixed to the identifier in the URL.
 # Trailing slash is important!
-cantaloupe_FilesystemSource_BasicLookupStrategy_path_prefix : /home/vkcuser/images/
+cantaloupe_FilesystemSource_BasicLookupStrategy_path_prefix : /iiif-data/compressed/
 
 # Enables the derivative (processed image) cache.
 cantaloupe_cache_server_derivative_enabled : "true"

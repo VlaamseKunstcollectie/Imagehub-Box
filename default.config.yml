@@ -1,7 +1,9 @@
 ---
 
-vagrant_box: imagehub-bionic64
-vagrant_box_url: file://packer/build/imagehub-bionic64.box
+vagrant_box: vlaamsekunstcollectie/imagehubbox
+
+# vagrant_box: imagehub-bionic64
+# vagrant_box_url: file://packer/build/imagehub-bionic64.box
 
 vagrant_user: vagrant
 vagrant_synced_folder_default_type: nfs
