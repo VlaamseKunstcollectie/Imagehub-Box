@@ -160,7 +160,7 @@ a remote host.
 
 ## Contents
 
-This box contains Ubuntu 14.04.1 Server (AMD 64) with these packages:
+This box contains Ubuntu 18.04.2 Server (AMD 64) with these packages:
 
 * Git
 * PHP-FPM 7 (with mongdb extension)
